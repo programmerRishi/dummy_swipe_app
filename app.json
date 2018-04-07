@@ -15,7 +15,7 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
     },
     "android": {
       "package": "com.pro_doc.dummy_swipe_app"
