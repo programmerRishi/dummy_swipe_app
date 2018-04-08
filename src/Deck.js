@@ -5,7 +5,6 @@ import {
    PanResponder,
    Dimensions,
    LayoutAnimation,
-   UIManager
  } from 'react-native';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -30,11 +29,9 @@ class Deck extends Component {
       onPanResponderRelease: (event, gesture) => {
         if (gesture.dx > SWIPE_THRESHOLD) {
           this.forceSwipe('right');
-        }
-        else if (gesture.dx < -SWIPE_THRESHOLD) {
+        } else if (gesture.dx < -SWIPE_THRESHOLD) {
           this.forceSwipe('left');
-        }
-        else {
+        } else {
           this.resetPostion();
         }
       }
@@ -100,8 +97,7 @@ Animated.spring(this.state.position, {
       this.props.data.map((item, mapIndex) => {
         if (mapIndex < this.state.stateArrayIndex) {
           return null;
-        }
-        else if (mapIndex === this.state.stateArrayIndex) {
+        } else if (mapIndex === this.state.stateArrayIndex) {
           return (
           <Animated.View
           key={item.id}
