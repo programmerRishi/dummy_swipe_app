@@ -48,7 +48,7 @@ componentWillReceiveProps(nextProps) {
     //These statement are creating problem with LayoutAnimation card gets rotated at its own postion
    // UIManager.setLayoutAnimationEnabledExperimental
    // && UIManager.setLayoutAnimationEnabledExperimental(true);
-  LayoutAnimation.spring();
+    LayoutAnimation.spring();
   }
 
   onSwipeComplete(direction) {
@@ -84,9 +84,9 @@ forceSwipe(direction) {
 }
 
 resetPostion() {
-Animated.spring(this.state.position, {
-  toValue: { x: 0, y: 0 }
-}).start();
+  Animated.spring(this.state.position, {
+    toValue: { x: 0, y: 0 }
+  }).start();
 }
 
   renderCards() {
@@ -98,23 +98,24 @@ Animated.spring(this.state.position, {
         if (mapIndex < this.state.stateArrayIndex) {
           return null;
         } else if (mapIndex === this.state.stateArrayIndex) {
-          return (
-          <Animated.View
-          key={item.id}
-          style={[this.getCardStyle(), styles.cardStyle]}
-          {...this.state.panResponder.panHandlers}
-          >
-          {this.props.renderCard(item)}
-          </Animated.View>);
-        }
-          return (
+            return (
+              <Animated.View
+              key={item.id}
+              style={[this.getCardStyle(), styles.cardStyle]}
+              {...this.state.panResponder.panHandlers}
+              >
+              {this.props.renderCard(item)}
+              </Animated.View>
+            );
+          }
+        return (
             <Animated.View
             key={item.id}
             style={[styles.cardStyle, { top: 10 * (mapIndex - this.state.stateArrayIndex) }]}
             >
              {this.props.renderCard(item)}
             </Animated.View>
-           );
+        );
       }).reverse()
     );
   }
